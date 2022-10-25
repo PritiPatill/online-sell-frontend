@@ -13,6 +13,7 @@ import ManageCategories from "./admin/ManageCategories";
 import AddProduct from "./admin/AddProduct";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
+import Cart from "./core/Cart";
 
 function Routes() {
   return (
@@ -21,6 +22,7 @@ function Routes() {
         <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/signin" element={<Signin/>} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/user/dashboard" element={<PrivateRoutes><UserDashBoard/></PrivateRoutes>} />
         <Route path="/admin/dashboard" element={<AdminRoute><AdminDashBoard/></AdminRoute>} />
         <Route path="/admin/create/category" element={<AdminRoute><AddCategory/></AdminRoute>} />
