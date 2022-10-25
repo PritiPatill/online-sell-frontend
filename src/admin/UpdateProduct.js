@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base";
 import { getAllCategories, getProduct, updateProduct } from "./helper/adminapicall";
@@ -38,6 +38,7 @@ const UpdateProduct = () => {
   } = values;
 
   const { productId } = useParams()
+  const navigate = useNavigate()
 
   const preloadCategories = () => {
     getAllCategories()
@@ -87,6 +88,9 @@ const preload = () => {
             loading: false,
             createdProduct: data?.name,
           });
+          setTimeout(() => {
+            navigate("/admin/products");
+          }, 2000);
         }
       })
       .catch((err) => console.log("Error in createProduct", err));

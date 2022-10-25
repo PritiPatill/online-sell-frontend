@@ -14,6 +14,7 @@ import AddProduct from "./admin/AddProduct";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import Cart from "./core/Cart";
+import UpdateCategory from "./admin/UpdateCategory";
 
 function Routes() {
   return (
@@ -27,6 +28,7 @@ function Routes() {
         <Route path="/admin/dashboard" element={<AdminRoute><AdminDashBoard/></AdminRoute>} />
         <Route path="/admin/create/category" element={<AdminRoute><AddCategory/></AdminRoute>} />
         <Route path="/admin/categories" element={<AdminRoute><ManageCategories/></AdminRoute>} />
+        <Route path="/admin/category/update/:categoryId" element={<AdminRoute><UpdateCategory/></AdminRoute>} />
         <Route path="/admin/create/product" element={<AdminRoute><AddProduct/></AdminRoute>} />
         <Route path="/admin/products" element={<AdminRoute><ManageProducts/></AdminRoute>} />
         <Route path="/admin/product/update/:productId" element={<AdminRoute><UpdateProduct/></AdminRoute>} />

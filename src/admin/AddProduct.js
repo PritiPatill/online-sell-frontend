@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base";
 import { getAllCategories, createProduct } from "./helper/adminapicall";
@@ -21,7 +21,7 @@ const AddProduct = () => {
   });
 
   const { user, token } = isAuthenticated();
-
+  const navigate = useNavigate()
   const {
     name,
     description,
@@ -71,6 +71,9 @@ const AddProduct = () => {
             loading: false,
             createdProduct: data?.name,
           });
+          setTimeout(() => {
+            navigate("/admin/products");
+          }, 2000);
         }
       })
       .catch((err) => console.log("Error in createProduct", err));
