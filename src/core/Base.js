@@ -7,7 +7,8 @@ const Base = ({
     description="My Description",
     className="bg-dark text-white p-4",
     children
-}) => (
+}) => {
+    return(
     <div>
         <Menu />
         <div className="container-fluid">
@@ -16,7 +17,7 @@ const Base = ({
                 <p className="lead">{description}</p>
             </div>
 
-            <div classNameName={className}>{children}</div>
+            <div className={className}>{children}</div>
         </div>
 
         <footer className="footer bg-dark mt-auto pt-3">
@@ -31,6 +32,6 @@ const Base = ({
             </div>
         </footer>
     </div>
-)
+)}
 
 export default Base

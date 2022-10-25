@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { authenticate, isAuthenticated, signIn } from "../auth/helper";
 import Base from "../core/Base";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "danny.d@gmail.com",
+    password: "123456",
     error: "",
     loading: false,
     didRedirect: false,
@@ -47,12 +47,11 @@ const Signin = () => {
   };
 
   const performRedirect = () => {
-    // TODO: Do the redirection here
     if (didRedirect) {
       if (user?.role === 1) {
-        return <p className="text-white text-center">Redirect to admin dashboard</p>;
+        return <Navigate to="/admin/dashboard" />;
       } else {
-        return <p className="text-white text-center">Redirect to user dashboard</p>;
+        return <Navigate to="/user/dashboard" />;
       }
     }
     if (isAuthenticated()) navigate("/");
