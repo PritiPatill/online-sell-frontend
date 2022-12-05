@@ -5,10 +5,11 @@ import Card from "./Card";
 import { loadCart } from "./helper/cartHelper";
 
 import "../styles.css";
+import Paymentb from "./Paymentb";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
-  const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     setProducts(loadCart());
@@ -32,19 +33,16 @@ const Cart = () => {
     );
   };
 
-  const loadCheckout = () => {
-    return (
-      <div>
-        <h2>This section is for checkout</h2>
-      </div>
-    );
-  };
-
   return (
     <Base title="Home Page" description="Welcome to online tshirt store">
       <div className="row text-center">
-        <div className="col-6">{loadAllProducts()}</div>
-        <div className="col-6">{loadCheckout()}</div>
+        <div className="col-6">
+          {products.length ? loadAllProducts() : <h3>No Products in cart</h3>}
+        </div>
+        <div className="col-6">
+          <h3>Checkout</h3>
+          <Paymentb products={products} reload={reload} setReload={setReload}/>
+          </div>
       </div>
     </Base>
   );
